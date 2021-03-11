@@ -3,5 +3,6 @@ public class Program {
         System.out.println("hello Long");
         String a = "tuan";
         String b = "nam";
+        int c = 0;
     }
 }
