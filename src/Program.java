@@ -4,5 +4,7 @@ public class Program {
         String a = "tuan";
         String b = "nam";
         int c = 0;
+        String natuan = "Nguyen ANh Tuan";
+        System.out.print(natuan);
     }
 }
