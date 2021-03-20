@@ -1,0 +1,684 @@
+
+
+
+package com.ibm.almaden.CitySimulator;
+
+/**
+ * 
+ * <ol>
+ * <li>XML_CityPlan.java.java
+ * <li>extends CityPlanAbstract
+ * <li>reads a city plan from an xml document
+ * </ol>
+ * 
+ * @author <A HREF="mailto:kaufman@almaden.ibm.com">James Kaufman</A>
+ * @version $Revision: 9 $ $Date: 12/07/01 4:38p $ 
+ * 
+ **/
+
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+import java.text.*;
+
+// XML stuff
+import org.w3c.dom.*;
+import org.xml.sax.*;
+import org.apache.xerces.parsers.*;
+import org.apache.xerces.dom.*;
+import org.apache.xml.serialize.*;
+
+
+
+/**
+ *
+ * @author  James Kaufman
+ * @version 
+ */
+public class XML_CityPlan extends CityPlanAbstract {
+
+	private static int				numFloors		= 0;
+	private static int				zPeriod			= 0;
+	
+	private static Random			rnd				= new Random(random_number_seed);
+    private static double			prob			= 0.0;
+	private static XML_CityWriter					cityWriter;
+
+	// static variables we will use a lot
+	private static String s;
+	private static Double d;
+	private static Integer anInt;
+	private static double angle		= 0.0;
+	private static double width		= 0.0;
+	private static double length	= 0.0;
+	private static double scale		= 1.0;
+	private static double xMin		= 0.0;
+	private static double yMin		= 0.0;
+	private static int floorNum;
+	private static int altitude;
+	// motion rules
+	private static double enterProb, exitProb, velGrad, upProb, downProb;
+	// transpoint
+	private static double x1,y1,x2,y2;
+	
+    /** 
+     *  public CityPlan() 
+     *  This class CityPlan creates an artificial city based on a 
+     *	simple fixed recipe. Other CityPlan classes may 
+     *  read GIS data, import data from an xml file, scan a gif map, etc. 
+     */
+    public XML_CityPlan() 
+    {
+    }
+
+	/**
+	* CityPlan.buildCity
+	* 
+	* @param  City acity 
+	* 
+	* The buildPlan method takes a City instance as an argument
+	* The buildPlan method must:
+	* create city objects (roads, intersections, buildings, floors, etc.)
+	* send the objects back to the city using the city.createPLACE methods
+	* When complete, the city method will null the cityPlan and clean up.
+	*/ 
+	public void buildPlan(City aCity) 
+    {
+		city = aCity;
+		
+		// set root tag for the file
+		String rootTag = "CityPlan";
+		String xmlFile = city.xmlPlanFile;
+		
+		// get and validate the xml document
+		Document planDocument = null;
+		try {
+		planDocument = this.getAndValidateDocument(xmlFile, rootTag);
+		} catch(Exception e) {
+			System.out.println("XML_CityPlan: unable to open plan document "+xmlFile);
+			e.getMessage();
+			System.exit(0);
+		}
+		// get the root element
+		Element root = planDocument.getDocumentElement();
+		// First get the scale factor for this plan
+		s = root.getAttribute("CityScale");
+		scale = Double.valueOf(s).doubleValue();
+		// min x coord 
+		s = root.getAttribute("Xmin");
+		xMin = Double.valueOf(s).doubleValue();
+		// min y coord
+		s = root.getAttribute("Ymin");
+		yMin = Double.valueOf(s).doubleValue();
+
+		if (scale <= 0.0) 
+		{
+			System.out.println("CityScale invalid in xml city plan");
+			System.exit(0);
+		}
+		
+		
+		// FROM the xml document, we will read the elements for
+		// Intersections, Roads, GrassyFields, Buildings, Floors
+		
+		// Get all of the intersections first
+		
+		/*  example of DTD for intersections
+		<Intersection Angle="0.0" Length="100.0" Width="100.0">
+			<EndPoint1 x="1000" y="5250"/>
+			<EndPoint2 x="1100" y="5250"/>
+		</Intersection>
+		*/
+		
+		// get the nodes
+		NodeList nList = root.getElementsByTagName("Intersection");
+		System.out.println(" ");
+		System.out.println("Reading and Validating "+nList.getLength()+" Intersection(s)");
+		for (int i=0; i < nList.getLength(); i++) 
+		{
+			// Loop through the intersection nodes
+			Node node = nList.item(i);
+			Element elm = (Element)node;
+			
+			// read the geometry (width, length, angle)
+			width=this.getScaledValue(elm,"Width");
+			length=this.getScaledValue(elm,"Length");
+			s = elm.getAttribute("Angle");
+			angle=Double.valueOf(s).doubleValue();
+		
+			// First endpoint of centerline	
+			Node child1 = findChildNodeByName(node, "EndPoint1");
+			TransPoint P1 = getPoint(child1);
+			
+			// Second endpoint of centerline	
+			Node child2 = findChildNodeByName(node, "EndPoint2");
+			TransPoint P2 = getPoint(child2);
+			
+			// validate the data and
+			// recalculate the length. Use the length from the xml doc for validation.
+			length = this.validateLength(P1,P2,length);
+			
+			// create the intersection
+		    Intersection intersection = new Intersection();
+			intersection.init(P1,P2,width, length, angle);
+			// Add the intersection to the city
+			city.createIntersection(intersection);
+			
+		}// for i, all intersections
+			
+		
+		// Get all of the roads
+		/* Example DTD for Roads
+		<Road Angle="0.0" Length="528.0" Width="100.0">
+			<EndPoint1 x="471" y="1050"/>
+			<EndPoint2 x="999" y="1050"/>
+			<MotionRules EnterProb="0.1" ExitProb="0.1" VelGradient="2.4"/>
+		</Road>
+		*/
+		// get the nodes
+		nList = root.getElementsByTagName("Road");
+		System.out.println("Reading and Validating "+nList.getLength()+" Road(s)");
+		for (int i=0; i < nList.getLength(); i++) 
+		{
+			// Loop through the road nodes
+			Node node = nList.item(i);
+			Element elm = (Element)node;
+			
+			// read the geometry (width, length, angle)
+			width=this.getScaledValue(elm,"Width");
+			length=this.getScaledValue(elm,"Length");
+			s = elm.getAttribute("Angle");
+			angle=Double.valueOf(s).doubleValue();
+		
+			
+			// First endpoint of centerline	
+			Node child1 = findChildNodeByName(node, "EndPoint1");
+			TransPoint P1 = getPoint(child1);
+		
+			// Second endpoint	
+			Node child2 = findChildNodeByName(node, "EndPoint2");
+			TransPoint P2 = getPoint(child2);
+			
+			// validate the data and
+			// recalculate the length. Use the length from the xml doc for validation.
+			length = this.validateLength(P1,P2,length);
+			// MotionRules child	
+			Node child3 = findChildNodeByName(node, "MotionRules");
+			if (child3==null)
+			{
+				System.out.println("XML_CityPlan: Road not properly defined. Missing MotionRules");
+				System.exit(0);
+			}
+			Element childElem3 = (Element)child3;
+			s = childElem3.getAttribute("EnterProb");
+			enterProb=Double.valueOf(s).doubleValue();
+			s = childElem3.getAttribute("ExitProb");
+			exitProb=Double.valueOf(s).doubleValue();
+			s = childElem3.getAttribute("VelGradient");
+			velGrad=Double.valueOf(s).doubleValue();
+			
+			// create the road
+			Road road = new Road();
+			road.init(P1,P2,width, length, angle, velGrad, enterProb, exitProb);
+			// Add the intersection to the city
+			city.createRoad(road);
+			
+		}// for i, all roads
+	
+		
+		
+		
+		
+		
+		// now add the GrassyFields
+		/*       DTD for GrassyField
+			
+			<GrassyField Angle="0.0" Length="518.0" Width="506.0">
+				<EndPoint1 x="481" y="746"/>
+				<EndPoint2 x="999" y="746"/>
+				<MotionRules ExitProb="0.1"/>
+			</GrassyField>
+		*/
+		// get the nodes
+		nList = root.getElementsByTagName("GrassyField");
+		System.out.println("Reading and Validating "+nList.getLength()+" GrassyField(s)");
+		
+		for (int i=0; i < nList.getLength(); i++) 
+		{
+			// Loop through the GrassyField nodes
+			Node node = nList.item(i);
+			Element elm = (Element)node;
+			
+			// read the geometry (width, length, angle)
+			width=this.getScaledValue(elm,"Width");
+			length=this.getScaledValue(elm,"Length");
+			s = elm.getAttribute("Angle");
+			angle=Double.valueOf(s).doubleValue();
+		
+						
+			// First endpoint of centerline	
+			Node child1 = findChildNodeByName(node, "EndPoint1");
+			TransPoint P1 = getPoint(child1);
+		
+			// Second endpoint	
+			Node child2 = findChildNodeByName(node, "EndPoint2");
+			TransPoint P2 = getPoint(child2);
+			
+			// validate the data and
+			// recalculate the length. Use the length from the xml doc for validation.
+			length = this.validateLength(P1,P2,length);
+			// MotionRules child	
+			Node child3 = findChildNodeByName(node, "MotionRules");
+			if (child3==null)
+			{
+				System.out.println("XML_CityPlan: GrassyField not properly defined. Missing MotionRules");
+				System.exit(0);
+			}
+			Element childElem3 = (Element)child3;
+			s = childElem3.getAttribute("ExitProb");
+			exitProb=Double.valueOf(s).doubleValue();
+			
+			// create the place
+			GrassyField field = new GrassyField();
+			field.init(P1,P2,angle, width, length, exitProb);
+			
+			// add the place to the city
+			city.createGrassyField(field);
+		}// for i, all GrassyFields
+		
+		
+		
+		
+		// now add the buildings and floors
+		/*       DTD for Buildings and floors
+			
+			<Building Angle="0.0" Length="518.0" Width="506.0">
+				<EndPoint1 x="481" y="746"/>
+				<EndPoint2 x="999" y="746"/>
+				<MotionRules ExitProb="0.1" UpProb="0.03"/>
+				<Floor Altitude="17" Angle="0.0" FloorNum="1" Length="518.0" Width="506.0">
+				    <EndPoint1 x="481" y="746"/>
+				    <EndPoint2 x="999" y="746"/>
+				    <MotionRules DownProb="0.03" UpProb="0.03"/>
+				</Floor>
+				<Floor Altitude="34" Angle="0.0" FloorNum="2" Length="518.0" Width="506.0">
+				    <EndPoint1 x="481" y="746"/>
+				    <EndPoint2 x="999" y="746"/>
+				    <MotionRules DownProb="0.03" UpProb="0.03"/>
+				</Floor>
+			</Building>
+		*/
+		// get the nodes
+		nList = root.getElementsByTagName("Building");
+		System.out.print("Reading and Validating "+nList.getLength()+" Building(s)");
+		
+		// print some dots to the console while the buildings are loading
+		// do this based on numBuildings mod something
+		int numDots = nList.getLength();
+		int denom = 0;
+		while(numDots >= 10)
+		{
+			numDots /= 10;
+			denom ++;
+		}
+		denom *= 10;
+		if (denom <=0) denom = 1;
+		
+		for (int i=0; i < nList.getLength(); i++) 
+		{
+			if ((i%denom)== 0) System.out.print(".");
+			// Loop through the building nodes
+			Node node = nList.item(i);
+			Element elm = (Element)node;
+			
+			// read the geometry (width, length, angle)
+			width=this.getScaledValue(elm,"Width");
+			length=this.getScaledValue(elm,"Length");
+			s = elm.getAttribute("Angle");
+			angle=Double.valueOf(s).doubleValue();
+		
+						
+			// First endpoint of centerline	
+			Node child1 = findChildNodeByName(node, "EndPoint1");
+			TransPoint P1 = getPoint(child1);
+			
+			// Second endpoint	
+			Node child2 = findChildNodeByName(node, "EndPoint2");
+			TransPoint P2 = getPoint(child2);
+
+			// validate the data and
+			// recalculate the length. Use the length from the xml doc for validation.
+			length = this.validateLength(P1,P2,length);
+			// MotionRules child	
+			Node child3 = findChildNodeByName(node, "MotionRules");
+			if (child3==null)
+			{
+				System.out.println("XML_CityPlan: Building not properly defined. Missing MotionRules");
+				System.exit(0);
+			}
+			Element childElem3 = (Element)child3;
+			s = childElem3.getAttribute("UpProb");
+			upProb=Double.valueOf(s).doubleValue();
+			s = childElem3.getAttribute("ExitProb");
+			exitProb=Double.valueOf(s).doubleValue();
+			
+			// create and add the building (the lobby level)
+			Building building = new Building();
+			building.init(P1,P2,angle, width, length, upProb, exitProb);
+			
+			NodeList floorList = ((Element)node).getElementsByTagName("Floor");
+		
+			// set the building color based on its height
+			building.placeColor = city.getColorByFloorNumber(floorList.getLength());
+			
+			// add the building to the city
+			city.createBuilding(building);
+			
+			// add the floors
+			if (floorList.getLength() >= 1)
+			{
+				this.createFloors(building,floorList);		
+			}
+		}// for i, all BUILDINGS (and FLOORS)
+		
+		//System.out.println(" ");
+		return;
+		
+	 }// BuildPlan
+	 
+
+	/*       DTD for Floors	
+			<Floor Altitude="17" Angle="0.0" FloorNum="1" Length="518.0" Width="506.0">
+			    <EndPoint1 x="481" y="746"/>
+			    <EndPoint2 x="999" y="746"/>
+			    <MotionRules DownProb="0.03" UpProb="0.03"/>
+			</Floor>
+	 */
+	 public void createFloors(Building b, NodeList floorList)
+	{
+		Place p = (Place) b;
+		Floor lastFloor = null;
+		for (int j=0; j < floorList.getLength(); j++) 
+		{
+			// Loop through the building nodes
+			Node node = floorList.item(j);
+			Element elm = (Element)node;
+			
+			// read the geometry (width, length, angle)
+			width=this.getScaledValue(elm,"Width");
+			length=this.getScaledValue(elm,"Length");
+			s = elm.getAttribute("Angle");
+			angle=Double.valueOf(s).doubleValue();
+		
+
+			// only for floors
+			s = elm.getAttribute("Altitude");
+			altitude=Integer.valueOf(s).intValue();
+			s = elm.getAttribute("FloorNum");
+			floorNum=Integer.valueOf(s).intValue();
+						
+			// First endpoint of centerline	
+			Node child1 = findChildNodeByName(node, "EndPoint1");
+			TransPoint P1 = getPoint(child1);
+			
+			// Second endpoint	
+			Node child2 = findChildNodeByName(node, "EndPoint2");
+			TransPoint P2 = getPoint(child2);
+			
+			// validate the data and
+			// recalculate the length. Use the length from the xml doc for validation.
+			length = this.validateLength(P1,P2,length);
+			// MotionRules child	
+			Node child3 = findChildNodeByName(node, "MotionRules");
+			if (child3==null)
+			{
+				System.out.println("XML_CityPlan: Building not properly defined. Missing MotionRules");
+				System.exit(0);
+			}
+			Element childElem3 = (Element)child3;
+			s = childElem3.getAttribute("UpProb");
+			upProb=Double.valueOf(s).doubleValue();
+			s = childElem3.getAttribute("DownProb");
+			downProb=Double.valueOf(s).doubleValue();	
+			// create and add the building (the lobby level)
+			Floor floor = new Floor();
+			floor.init(P1,P2,floorNum, altitude, angle, width, length, b, upProb, downProb);
+			
+			// set the neighbors up and down
+			if(j==0) 
+			{
+			    floor.setNeighborDown(p);
+			    b.setNeighborUp(floor);
+			}
+			else
+			{
+			    // lower neighbor
+			    floor.setNeighborDown(lastFloor);
+				// upper neighbor
+				lastFloor.setNeighborUp(floor);
+				// in case this is the top floor!
+				floor.setNeighborUp(null);
+			}
+			if (j>= floorList.getLength()) 
+			{
+			    // can't move above the top floor
+			    floor.setUpBound(-1);
+			}
+			lastFloor = floor;
+
+			city.createFloor(floor);
+			}// for j, all FLOORS
+	}// createFloors
+	
+	
+	/**
+	 * Method - getAndValidateDocument
+	 * <br>
+	 * From the given xml file get its document and validate it
+	 * 
+	 * @param xmlFile name of file containing xml 
+	 * @param rootTag root tag for validation, null otherwise
+	 * @return Document document representing xml file
+	 * @exception InvalidDocumentException document is empty, there is no
+	 *				root, the root doesn't match, or unable to parse
+	 * @exception IOException invalid input source
+	 * @exception FileNotFoundException input Xml file is not found
+	 */
+	public static Document getAndValidateDocument(String xmlFile,String rootTag)
+		throws IOException, FileNotFoundException
+	{
+		/*
+		 *----------------------------------------------------------
+		 * Variables 
+		 *----------------------------------------------------------
+		 */
+		Document document = null;				// entire Xml document...
+												//  ...represented as...
+												//  ...DOM object
+		InputSource in;							// InputSource of xml file
+		Node rootNode;							// root node of document
+
+		// Create document of the input file and search it for the 
+		// designated criteria (i.e., tag)
+		try 
+		{	
+			// Create an input source from the given input xml file
+			in = new InputSource(new FileReader(xmlFile));
+		}
+		catch (FileNotFoundException fnfe) 
+		{
+			throw new FileNotFoundException("XmlUtilities.getAndValidateDocument. File " + xmlFile + " not found - " + fnfe.toString());
+		}
+		catch (IOException ioe) 
+		{
+			throw new IOException("XmlUtilities.getAndValidateDocument. IOException on file " + xmlFile + " - " + ioe.toString());
+		}
+		
+		try
+		{
+			// Parse the xml file from the input source
+			
+			DOMParser parser = new DOMParser();
+			parser.parse(in);					
+			document = parser.getDocument();
+			
+			
+			// Ensure document exists, is the root, and that the root is 
+			// of the designated type
+			if (document == null) 
+			{
+				System.out.println("CityPlan Document is empty");
+				System.exit(0);
+			}
+			if (document.getNodeType() != Node.DOCUMENT_NODE)
+			{
+				System.out.println("CityPlan Document: invalid document node");
+				System.exit(0);
+			}
+			rootNode = document.getDocumentElement();
+			
+			if (rootTag != null)
+				if (rootNode.getNodeType() != Node.ELEMENT_NODE || 
+					!rootNode.getNodeName().equals(rootTag))
+					{
+					System.out.println("CityPlan Document: invalid document node");
+					System.exit(0);
+					}
+		}										// end try
+		catch (Exception e) 
+		{
+			System.out.println("CityPlan Document: invalid city plan document");
+			System.exit(0);
+		}
+		
+		// Return the document
+		return document;
+	}										// end getAndValidateDocument
+		
+	/**
+	 * findChildNodeByName. 
+	 * Finds the named child node of a node; returns null if child node is not found
+	 * 
+	 * @return org.w3c.dom.Node The child node
+	 */
+
+	public static Node findChildNodeByName(Node node, String childNodeName) 
+	{
+		NodeList childNodeList = node.getChildNodes();
+		Node retNode = null;
+		for (int i=0; i<childNodeList.getLength(); i++) {
+			Node temp = childNodeList.item(i);
+			String nodeName = temp.getNodeName();
+			if (nodeName.equals(childNodeName)) {
+				retNode = temp;
+				break;
+			}
+		}
+		return retNode;
+	} // findChildNodeByName
+		
+	
+	/**
+	 * validateLength.
+	 * @param TransPoint P1
+	 * @param TransPoint P2 
+	 * Validates TransPoints, Returns Length
+	 * 
+	 * @return org.w3c.dom.Node The child node
+	 */
+
+	public static double validateLength(TransPoint P1,TransPoint P2, double length) 
+	{
+		int x1 = P1.x;
+		int y1 = P1.y;
+		int x2 = P2.x;
+		int y2 = P2.y;
+		double d = (double)(((x1-x2)*(x1-x2))+((y1-y2)*(y1-y2)));
+		double newLength = Math.sqrt(d);
+	
+		//As a sanity check make sure length is within 2.0 of measured length
+		double test = newLength-length;
+		if (test< 0.0) test *= -1.0;
+		if (test > 2.0 )
+		{
+			System.out.println("XML_CityPlan: error defining place. Specified Length does not correspond to centerline length. Check for roundoff error");
+			System.out.println("XML_CityPlan: x1= "+x1+", y1= "+y1);
+			System.out.println("XML_CityPlan: x2= "+x2+", y2= "+y2);
+			System.out.println("XML_CityPlan: length = "+length+", measureLength = "+newLength);
+			System.exit(0);																																		  
+		}
+		if ((x1<0)||(y1<0)||(x2<0)||(y2<0))	
+		{
+			System.out.println("XML_CityPlan: error defining place. Place out of bounds - Negative coordinate");
+			System.exit(0);																																		  
+		}
+		if ((x1>Constants.CITYSIZE)||(y1>Constants.CITYSIZE)||(x2>Constants.CITYSIZE)||(y2>Constants.CITYSIZE))	
+		{
+			System.out.println("XML_CityPlan: error defining place. Place out of bounds - Coordinate >= CITYSIZE");
+			System.out.println("XML_CityPlan: x1= "+x1+", y1= "+y1+", length= "+length);
+			System.out.println("XML_CityPlan: x2= "+x2+", y2= "+y2+", length= "+length);
+			System.out.println("XML_CityPlan: CitySize is now set to "+Constants.CITYSIZE);
+			System.exit(0);																																		  
+		}
+		return newLength;
+	}
+	
+	
+	/**
+	 * ScalePoint:
+	 * @param double x
+	 * @param double y
+	 *  
+	 * Creates a TransPoint from double args
+	 * 
+	 * @return TransPoint
+	 */
+	public static TransPoint ScalePoint(double x, double y) 
+	{
+		x -= xMin;
+		y -= yMin;
+		x *= scale;
+		y *= scale;
+		x += 0.5; y += 0.5;
+		TransPoint P = new TransPoint((int)x,(int)y);
+		return P;
+	}
+	
+	
+	private static TransPoint getPoint(Node child) 
+	{
+		if (child==null)
+			{
+				System.out.println("XML_CityPlan: Place not properly defined. Missing EndPoint");
+				System.exit(0);
+			}
+			Element childElem = (Element)child;
+			s = childElem.getAttribute("x");
+			double x=Double.parseDouble(s);
+			s = childElem.getAttribute("y");
+			double y=Double.parseDouble(s);
+			TransPoint P = ScalePoint(x,y);
+		return P;
+	}
+	
+	
+	private static double getScaledValue(Element elm, String val) 
+	{
+		if (elm==null)
+			{
+				System.out.println("XML_CityPlan: Element null");
+				System.exit(0);
+			}
+		String s = elm.getAttribute(val);
+		double d=Double.valueOf(s).doubleValue();
+		d *= scale;
+	
+		return d;
+	}
+	
+	
+	
+}// Class XML_CityPlan
+
+    
