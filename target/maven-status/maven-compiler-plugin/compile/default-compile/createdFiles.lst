@@ -1,1 +1,6 @@
+com\natuan\citysimulator\helper\helper.class
 Main.class
+com\natuan\citysimulator\model\City.class
+com\natuan\citysimulator\GUI\GUI.class
+com\natuan\citysimulator\xml\xml.class
+com\natuan\citysimulator\controller\controller.class
