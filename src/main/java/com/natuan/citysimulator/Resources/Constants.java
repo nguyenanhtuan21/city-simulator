@@ -1,7 +1,7 @@
 package com.natuan.citysimulator.Resources;
 
 public interface Constants {
-    public static final String cityPlanClassName = "com.ibm.almaden.CitySimulator.CityPlan";
+    public static final String cityPlanClassName = "com.natuan.CitySimulator.CityPlan";
     public static final boolean storeData = true;
     public static final long random_number_seed = 17L;
     public static final int SCALETOMETERS = 5;

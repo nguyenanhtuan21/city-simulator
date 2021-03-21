@@ -1,0 +1,34 @@
+
+
+
+package com.ibm.almaden.CitySimulator;
+
+/**
+ * 
+ * <ol>
+ * <li>CityPlanInterface.java
+ * <li>An interface to the abstract class CityPlanAbstract
+ * <li>Required method buildPlan(City acity)
+ * </ol>
+ * 
+ * @author <A HREF="mailto:kaufman@almaden.ibm.com">James Kaufman</A>
+ * @version $Revision: 1 $ $Date: 11/21/01 12:51p $ 
+ * 
+ **/
+
+
+
+
+public interface CityPlanInterface {
+
+  
+	
+   	/**
+   	 * All CityPlan classes must build a city.
+   	 */
+	public void buildPlan(City acity); 
+  
+	 
+}// Interface CityPlanInterface
+
+    

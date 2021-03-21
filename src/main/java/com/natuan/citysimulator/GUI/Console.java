@@ -29,7 +29,7 @@ public class Console extends JInternalFrame {
         this.outputArea = new JTextPane();
         this.clear = new JButton("Clear");
         this.setIconifiable(true);
-        this.setFrameIcon(new ImageIcon(this.getClass().getResource("city2.gif")));
+        this.setFrameIcon(new ImageIcon());
         this.outputArea.setEditable(true);
         final Document document = this.outputArea.getDocument();
         final SimpleAttributeSet a = new SimpleAttributeSet();

@@ -83,7 +83,7 @@ public class CitySimulator extends JFrame implements Constants {
         CitySimulator.upProb = 0.03;
         CitySimulator.downProb = CitySimulator.downLow;
         CitySimulator.graphMode = "true";
-        CitySimulator.cityPlanClassName = "com.ibm.almaden.CitySimulator.CityPlan";
+        CitySimulator.cityPlanClassName = "com.natuan.CitySimulator.CityPlan";
         CitySimulator.walkMax = 10.0;
         CitySimulator.timeDelta = 2.0E-4;
         CitySimulator.personKeyMultiplier = 0;
@@ -122,14 +122,14 @@ public class CitySimulator extends JFrame implements Constants {
             this.addWindowListener(new CityWindowAdapter());
             this.setJMenuBar(this.createMenuBar());
             try {
-                this.setIconImage(new ImageIcon(this.getClass().getResource("city2.gif")).getImage());
+                this.setIconImage(new ImageIcon().getImage());
             } catch (Exception ex) {
             }
             this.setVisible(true);
             final Input_data input_data = new Input_data();
             final JFrame initialize = input_data.Initialize(CitySimulator.myself);
             try {
-                initialize.setIconImage(new ImageIcon(this.getClass().getResource("city2.gif")).getImage());
+                initialize.setIconImage(new ImageIcon().getImage());
             } catch (Exception ex2) {
             }
             while (!input_data.start) {
