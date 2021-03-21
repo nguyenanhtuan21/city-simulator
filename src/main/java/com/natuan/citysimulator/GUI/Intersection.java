@@ -118,7 +118,7 @@ public class Intersection extends Place implements ActionListener, ChangeListene
         Intersection.iMax = this.activeExitPoints.size();
         if (Intersection.iMax >= 1) {
             Intersection.direction = Place.rnd.nextInt(Intersection.iMax);
-            Intersection.exitPoint = this.activeExitPoints.elementAt(Intersection.direction);
+            Intersection.exitPoint = (ExitPoint) this.activeExitPoints.elementAt(Intersection.direction);
             Place.ix = Intersection.exitPoint.rx;
             Place.iy = Intersection.exitPoint.ry;
             Place.newPlace = Intersection.exitPoint.p;
@@ -144,7 +144,7 @@ public class Intersection extends Place implements ActionListener, ChangeListene
     private void updateActiveExitPoints() {
         this.activeExitPoints.removeAllElements();
         for (int i = 0; i < this.allExitPoints.size(); ++i) {
-            final ExitPoint exitPoint = this.allExitPoints.elementAt(i);
+            final ExitPoint exitPoint = (ExitPoint) this.allExitPoints.elementAt(i);
             final int index = this.exitPlaceList.indexOf(exitPoint.p);
             if (index >= 0) {
                 Intersection.iprob = Place.rnd.nextInt(100);

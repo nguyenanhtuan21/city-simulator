@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 public class Building extends Place implements ActionListener, ChangeListener {
     public Place neighborUP;
     public Place neighborDOWN;
-    double exitProb;
+    public double exitProb;
     private JInternalFrame optionsFrame;
     private JSlider upSlider;
     private JSlider downSlider;

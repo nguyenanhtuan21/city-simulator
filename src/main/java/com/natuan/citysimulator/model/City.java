@@ -149,7 +149,7 @@ public class City implements Constants {
 
     public void findIntersectionExitPoints() {
         for (int size = City.placeVector.size(), i = 0; i < size; ++i) {
-            final Place place = City.placeVector.elementAt(i);
+            final Place place = (Place) City.placeVector.elementAt(i);
             if (place instanceof Intersection) {
                 System.out.print(".");
                 ((Intersection) place).findAllExitPoints();
@@ -166,7 +166,7 @@ public class City implements Constants {
         int n4 = 0;
         int n5 = 0;
         for (int i = 0; i < size; ++i) {
-            final Place place = City.placeVector.elementAt(i);
+            final Place place = (Place) City.placeVector.elementAt(i);
             if (place instanceof Road) {
                 final Road road = (Road) place;
                 final int x = place.endPoint1.x;
@@ -200,7 +200,7 @@ public class City implements Constants {
             }
         }
         for (int j = 0; j < size; ++j) {
-            final Place place2 = City.placeVector.elementAt(j);
+            final Place place2 = (Place) City.placeVector.elementAt(j);
             boolean b = false;
             if (place2 instanceof Road) {
                 final Road road2 = (Road) place2;

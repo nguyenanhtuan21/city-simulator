@@ -40,7 +40,7 @@ public class MyOutput implements Constants {
             final PrintWriter printWriter = new PrintWriter(new BufferedWriter(new FileWriter(this.file_name, true)));
             final PrintWriter printWriter2 = new PrintWriter(new BufferedWriter(new FileWriter(this.pop_file_name, true)));
             for (int size = vector.size(), j = 0; j < size; ++j) {
-                final Person person = vector.elementAt(j);
+                final Person person = (Person) vector.elementAt(j);
                 final String string = new Integer(person.personKey).toString();
                 MyOutput.ix = new Integer(person.xpos);
                 MyOutput.iy = new Integer(person.ypos);

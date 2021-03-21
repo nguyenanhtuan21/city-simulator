@@ -144,7 +144,7 @@ public class XML_CityWriter {
         XML_CityWriter.root.appendChild(element);
         if (enumeration != null) {
             while (enumeration.hasMoreElements()) {
-                final Floor floor = enumeration.nextElement();
+                final Floor floor = (Floor) enumeration.nextElement();
                 final Element element5 = XML_CityWriter.doc.createElement("Floor");
                 final String string10 = Double.toString(2.0 * building.halfWidth);
                 final String string11 = Double.toString(building.length);

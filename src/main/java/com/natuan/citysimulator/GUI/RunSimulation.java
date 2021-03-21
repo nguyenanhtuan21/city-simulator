@@ -2,10 +2,7 @@ package com.natuan.citysimulator.GUI;
 
 import com.natuan.citysimulator.Resources.Constants;
 import com.natuan.citysimulator.helper.MyOutput;
-import com.natuan.citysimulator.model.City;
-import com.natuan.citysimulator.model.Floor;
-import com.natuan.citysimulator.model.Person;
-import com.natuan.citysimulator.model.Place;
+import com.natuan.citysimulator.model.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -197,10 +194,10 @@ public class RunSimulation implements Constants {
     public void addPerson() {
         final Person obj = new Person(this.getPersonKey());
         final int entryIndex = this.city.getEntryIndex();
-        final int intValue = City.entryX.elementAt(entryIndex);
-        final int intValue2 = City.entryY.elementAt(entryIndex);
+        final int intValue = (int) City.entryX.elementAt(entryIndex);
+        final int intValue2 = (int) City.entryY.elementAt(entryIndex);
         final int n = 0;
-        final Place place = City.entryPlace.elementAt(entryIndex);
+        final Place place = (Place) City.entryPlace.elementAt(entryIndex);
         obj.setTime(RunSimulation.time += this.incrementTime(RunSimulation.personVector.size()));
         obj.setPlace(place);
         obj.setPosition(intValue, intValue2, n);
@@ -226,7 +223,7 @@ public class RunSimulation implements Constants {
 
     public void moveEveryone() {
         for (int i = 0; i < RunSimulation.personVector.size(); ++i) {
-            final Person person = RunSimulation.personVector.elementAt(i);
+            final Person person = (Person) RunSimulation.personVector.elementAt(i);
             final int n = person.xpos / 10;
             final int n2 = person.ypos / 10;
             if (RunSimulation.useGraph) {
@@ -260,7 +257,8 @@ public class RunSimulation implements Constants {
             this.numPersonsOnFloor[i] = 0;
         }
         for (int j = 0; j < size; ++j) {
-            final int floor = RunSimulation.personVector.elementAt(j).place.floor;
+            Person person = (Person) RunSimulation.personVector.elementAt(j);
+            final int floor = person.place.floor;
             final int[] numPersonsOnFloor = this.numPersonsOnFloor;
             final int n = floor;
             ++numPersonsOnFloor[n];
@@ -280,8 +278,8 @@ public class RunSimulation implements Constants {
         if (this.conservePop || !this.relaxedCity) {
             RunSimulation.prob = RunSimulation.rnd.nextDouble();
             final int entryIndex = this.city.getEntryIndex();
-            final int intValue = City.entryX.elementAt(entryIndex);
-            final int intValue2 = City.entryY.elementAt(entryIndex);
+            final int intValue = (int) City.entryX.elementAt(entryIndex);
+            final int intValue2 = (int) City.entryY.elementAt(entryIndex);
             final int n = 0;
             obj.setPlace((Place) City.entryPlace.elementAt(entryIndex));
             obj.setPosition(intValue, intValue2, n);
