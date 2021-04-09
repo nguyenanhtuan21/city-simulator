@@ -75,8 +75,7 @@ public class XML_CityPlan extends CityPlanAbstract {
         }
         try {
             final DOMParser domParser = new DOMParser();
-//            ((XMLParser) domParser).parse(inputSource);
-            ((XMLParser) domParser).parse(new XMLInputSource((XMLResourceIdentifier) inputSource));
+            domParser.parse(inputSource);
             document = domParser.getDocument();
             if (document == null) {
                 System.out.println("CityPlan Document is empty");

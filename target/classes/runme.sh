@@ -1,1 +1,0 @@
-java -classpath CitySimulator.jar:xerces.jar:CitySimulator.properties:. com/ibm/almaden/CitySimulator/CitySimulator

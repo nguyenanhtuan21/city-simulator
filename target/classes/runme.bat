@@ -1,1 +1,0 @@
-java -classpath ".;.\xerces.jar;.\CitySimulator.jar;%classpath%" com.ibm.almaden.CitySimulator.CitySimulator true

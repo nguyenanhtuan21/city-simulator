@@ -1,7 +1,5 @@
 package com.natuan.citysimulator.model;
 
-import com.natuan.citysimulator.GUI.GrassyField;
-
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -153,7 +151,7 @@ public class Road extends Place implements ActionListener, ChangeListener {
         this.optionsFrame = new JInternalFrame("Road Options", false, true);
         this.optionsFrame.getContentPane().setLayout(new BorderLayout());
         try {
-            this.optionsFrame.setFrameIcon(new ImageIcon(this.getClass().getResource("city2.gif")));
+            this.optionsFrame.setFrameIcon(new ImageIcon(this.getClass().getResource("lib/city2.gif")));
         } catch (Exception ignored) {
         }
         final JPanel comp = new JPanel(new GridLayout(1, 1));

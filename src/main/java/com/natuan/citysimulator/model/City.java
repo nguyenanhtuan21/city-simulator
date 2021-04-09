@@ -391,7 +391,7 @@ public class City implements Constants {
             comp.setSize(new Dimension(n3 * City.MAPSIZE + n, n3 * City.MAPSIZE + n2));
             comp.setLocation(20, 5);
             try {
-                comp.setFrameIcon(new ImageIcon(this.getClass().getResource("city2.gif")));
+                comp.setFrameIcon(new ImageIcon(this.getClass().getResource("lib/city2.gif")));
             } catch (Exception ex) {
             }
             comp.show();

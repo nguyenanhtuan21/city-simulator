@@ -46,7 +46,7 @@ public class SingleChartFrame extends JInternalFrame implements ActionListener {
         this.yMaxLeft = yMaxLeft;
         this.setSize(new Dimension(width, height));
         try {
-            this.setFrameIcon(new ImageIcon(this.getClass().getResource("city2.gif")));
+            this.setFrameIcon(new ImageIcon(this.getClass().getResource("lib/city2.gif")));
         } catch (Exception ex) {
         }
         this.initComponents();

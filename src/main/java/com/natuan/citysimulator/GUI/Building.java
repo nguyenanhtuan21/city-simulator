@@ -109,7 +109,7 @@ public class Building extends Place implements ActionListener, ChangeListener {
         this.optionsFrame = new JInternalFrame("Building Options", false, true);
         this.optionsFrame.getContentPane().setLayout(new BorderLayout());
         try {
-            this.optionsFrame.setFrameIcon(new ImageIcon(this.getClass().getResource("city2.gif")));
+            this.optionsFrame.setFrameIcon(new ImageIcon(this.getClass().getResource("lib/city2.gif")));
         } catch (Exception ex) {
         }
         final JPanel comp = new JPanel(new GridLayout(1, 1));
