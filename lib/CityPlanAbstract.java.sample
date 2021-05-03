@@ -1,0 +1,49 @@
+
+
+
+package com.ibm.almaden.CitySimulator;
+
+/**
+ * 
+ * <ol>
+ * <li>CityPlanAbstract.java
+ * <li>implements CityPlanInterface, Constants
+ * <li>requires method: public abstract void buildPlan(City acity); 
+ * </ol>
+ * 
+ * @author <A HREF="mailto:kaufman@almaden.ibm.com">James Kaufman</A>
+ * @version $Revision: 2 $ $Date: 11/21/01 4:22p $ 
+ * 
+ **/
+
+
+
+public abstract class CityPlanAbstract implements CityPlanInterface, Constants {
+
+    public static Intersection[]		intersection	=	new Intersection[numIntersections];
+	public static Road				road;
+	public static Building			building;
+    public static Floor				floor;
+	
+	public static City				city;
+	
+	
+    /** Creates new CityPlan a(simulated or from xml doc */
+    public CityPlanAbstract() 
+    {
+       
+    }
+
+	/**
+	* CityPlanAbstract.buildCity
+	* @param  City acity 
+	* 
+	*/ 
+	public abstract void buildPlan(City acity); 
+    
+	
+    
+	
+}// Class CityPlanAbstract
+
+    

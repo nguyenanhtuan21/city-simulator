@@ -1,0 +1,41 @@
+package com.natuan.citysimulator.Resources;
+
+public interface Constants {
+    public static final String cityPlanClassName = "com.natuan.CitySimulator.CityPlan";
+    public static final boolean storeData = true;
+    public static final long random_number_seed = 17L;
+    public static final int SCALETOMETERS = 5;
+    public static final int MAPSCALE = 10;
+    public static final int CITYSIZE = 6300;
+    public static final int MAPSIZE = 630;
+    public static final double walkMax = 10.0;
+    public static final int MAXROADVEL = 120;
+    public static final double timeDelta = 2.0E-4;
+    public static final int PERSONKEYMULTIPLIER = 0;
+    public static final int REENTRYMULTIPLIER = 0;
+    public static final int ROADWIDTH = 100;
+    public static final int WALL = 10;
+    public static final int AVGROADLENGTH = 500;
+    public static final int MAXROADFLUCT = 100;
+    public static final int numIntersections = 6;
+    public static final int[] interX = {1000, 1000, 1000, 3100, 3100, 3100};
+    public static final int[] interY = {1000, 3100, 5200, 1000, 3100, 5200};
+    public static final int numRoads = 54;
+    public static final int numBuildings = 132;
+    public static final int FLOORMAX = 15;
+    public static final int FLOORMIN = 5;
+    public static final double floorMax = 15.0;
+    public static final double floorMin = 5.0;
+    public static final int MAPBUFFER = 201;
+    public static final int MAPOFFSET = 70;
+    public static final double PI = 3.14159265359;
+    public static final String NORTH = "N";
+    public static final String SOUTH = "S";
+    public static final String EAST = "E";
+    public static final String WEST = "W";
+    public static final int fixedColors = 10;
+    public static final int maxColors = 127;
+    public static final byte BUILDINGCOLOR = 63;
+    public static final byte ROADCOLOR = 5;
+    public static final byte GRASSYFIELDCOLOR = 6;
+}
