@@ -97,6 +97,7 @@ public class MyOutput implements Constants {
             printWriter.close();
         } catch (FileNotFoundException ex2) {
             System.err.println("Can't open output file");
+            System.out.println("Please try again");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
