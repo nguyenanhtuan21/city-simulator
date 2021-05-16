@@ -1,7 +1,5 @@
 package com.natuan.citysimulator.model;
 
-import com.natuan.citysimulator.GUI.Building;
-
 public class Floor extends Place {
     public Place neighborUP;
     public Place neighborDOWN;

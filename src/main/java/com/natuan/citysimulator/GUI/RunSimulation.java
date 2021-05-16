@@ -189,6 +189,7 @@ public class RunSimulation implements Constants {
                 }
             }
         }
+        output.writeFileDataConvert(RunSimulation.personVector.size(), this.finalMoves, this.numPeople, this.addMoves, this.finalMoves, 17L);
     }
 
     public void addPerson() {
@@ -198,7 +199,7 @@ public class RunSimulation implements Constants {
         final int intValue2 = (int) City.entryY.elementAt(entryIndex);
         final int n = 0;
         final Place place = (Place) City.entryPlace.elementAt(entryIndex);
-        obj.setTime(RunSimulation.time += this.incrementTime(RunSimulation.personVector.size()));
+        obj.setTime(0.0);
         obj.setPlace(place);
         obj.setPosition(intValue, intValue2, n);
         RunSimulation.personVector.addElement(obj);
@@ -220,9 +221,17 @@ public class RunSimulation implements Constants {
         RunSimulation.prob += RunSimulation.timeDelta;
         return RunSimulation.prob *= 100000.0 / (n + 1);
     }
+    public double incrementTimeByPi() {
+        RunSimulation.prob = RunSimulation.rnd.nextDouble();
+        RunSimulation.prob *= RunSimulation.timeDelta;
+        RunSimulation.prob += RunSimulation.timeDelta;
+        return RunSimulation.prob *= 100000.0 / (3.14 + 1);
+    }
 
     public void moveEveryone() {
+        RunSimulation.time += this.incrementTimeByPi();
         for (int i = 0; i < RunSimulation.personVector.size(); ++i) {
+
             final Person person = (Person) RunSimulation.personVector.elementAt(i);
             final int n = person.xpos / 10;
             final int n2 = person.ypos / 10;

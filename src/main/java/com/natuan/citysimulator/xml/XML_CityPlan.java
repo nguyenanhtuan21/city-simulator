@@ -1,6 +1,6 @@
 package com.natuan.citysimulator.xml;
 
-import com.natuan.citysimulator.GUI.Building;
+import com.natuan.citysimulator.model.Building;
 import com.natuan.citysimulator.GUI.GrassyField;
 import com.natuan.citysimulator.GUI.Intersection;
 import com.natuan.citysimulator.abstracts.CityPlanAbstract;
@@ -9,9 +9,6 @@ import com.natuan.citysimulator.model.Floor;
 import com.natuan.citysimulator.model.Road;
 import com.natuan.citysimulator.model.TransPoint;
 import org.apache.xerces.parsers.DOMParser;
-import org.apache.xerces.parsers.XMLParser;
-import org.apache.xerces.xni.XMLResourceIdentifier;
-import org.apache.xerces.xni.parser.XMLInputSource;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;

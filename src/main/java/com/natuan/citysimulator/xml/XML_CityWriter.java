@@ -1,6 +1,6 @@
 package com.natuan.citysimulator.xml;
 
-import com.natuan.citysimulator.GUI.Building;
+import com.natuan.citysimulator.model.Building;
 import com.natuan.citysimulator.GUI.Intersection;
 import com.natuan.citysimulator.model.Floor;
 import com.natuan.citysimulator.model.Place;
