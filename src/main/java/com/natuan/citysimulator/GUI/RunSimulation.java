@@ -155,7 +155,7 @@ public class RunSimulation implements Constants {
             this.fluidCheck = false;
         }
         int m = 0;
-        for (int n2 = 0; n2 <= this.finalMoves / 10; ++n2) {
+        for (int n2 = 0; n2 < this.finalMoves / 10; ++n2) {
             this.populationNow[n2] = this.totPop;
             this.peopleNow = this.zHistogram();
             if (RunSimulation.useGraph) {
