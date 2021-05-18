@@ -1,0 +1,14 @@
+What's New
+Version 2.0 of the city simulator includes many new features.
+
+1) City plans can now be created from an xml document. A sample city plan comes with the package. Look at the sample file city_plan.xml for an eample of the city plan document type definition (dtd). To create your own city plan you may write your own filter to, for example, import GML data or define your own buildings and roads. As long as you conform to the city_plan dtd, just name your xml file city_plan.xml and City Simulator will run with your city plan.
+2) The CityPlan.java class now has an interface CityPlanInterface.java and abstract clas CityPlanAbstract.java. If you wish you may write your own CityPlan class to generate a plan. See the sample code XML_CityPlan.java for an example of how this is done.
+3) The simulator now comes with a properties file (CitySimulator.properties) that can be used to configure program settings. The command line interface still exists as does the GUI (and supercedes values in the properties file if used). The properties file allows control of many more parameters including the name of the CityPlan class the program should use (eg. XML_CityPlan.java or your own class). 
+4) Parameters affecting motion rules can now be changed in real time if you run using the GUI. Simply click on a place (Road, Building, Intersection, etc.) and you can change up down probabilities for building floors, cause traffic delays on roads, invoke a realistic traffic flow model for roads and intersections, etc. Many parameters are non-static class variables so one can empty one building while filling another.
+5) A Boolean parameter conservePopulation has been added to the property file. When set to false, this parameter will cause the population do decrease (ie as people leave the city they are not replaced). Removal of people from the city after the relaxation is complete (determined by relax moves). This feature allows one to investigate the rate at which a region of a city can be evacuated. When set to false, population vs time will be displayed in a new graphical window. Poputation vs time data will also be output to a file "pop_"+filename.txt where filename is the datafile name you specify.
+6) Places now have color. A public method is available to color buildings (grayscale) based on their height.
+7) GrassyField(s) (extending place) have been added. 
+8) A runme.bat file is included in the package (for windows&#174)
+9) CitySimulator now works on Linux based systems.
+
+
