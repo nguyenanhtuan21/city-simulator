@@ -174,7 +174,7 @@ public class RunSimulation implements Constants {
                 RunSimulation.downProb = RunSimulation.downLow;
                 this.fillCity = !this.fillCity;
             }
-            System.out.println("Cycle Number: " + m);
+            System.out.println("Cycle Number: " + (m + 10));
             for (int n3 = 0; n3 < 10; ++n3) {
                 ++m;
                 this.moveEveryone();
@@ -239,7 +239,7 @@ public class RunSimulation implements Constants {
                 this.city.peopleMatrix[n][n2] = this.city.viewMatrix[n][n2];
             }
             if (person.place.movePerson(person)) {
-                person.setTime(RunSimulation.time += this.incrementTime(this.numPeople));
+                person.setTime(RunSimulation.time);
                 if (RunSimulation.useGraph) {
                     final int n3 = person.xpos / 10;
                     final int n4 = person.ypos / 10;
