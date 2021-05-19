@@ -1,6 +1,6 @@
 package com.natuan.citysimulator.controller;
 
-import com.natuan.citysimulator.GUI.Building;
+import com.natuan.citysimulator.model.Building;
 import com.natuan.citysimulator.GUI.Intersection;
 import com.natuan.citysimulator.Resources.Constants;
 import com.natuan.citysimulator.abstracts.CityPlanAbstract;
