@@ -10,16 +10,16 @@ public class Floor extends Place {
         this.neighborDOWN = null;
     }
 
-    public void init(final TransPoint transPoint, final TransPoint transPoint2, final int n, final int altitude, final double n2, final double n3, final double n4, final Building foundation, final double upBound, final double downBound) {
-        super.init(transPoint, transPoint2, n, altitude, n2, n3, n4);
+    public void init(final TransPoint transPoint, final TransPoint transPoint2, final int n, final int altitude, final double n2, final double n3, final double n4, final Building foundation, final double upBound, final double downBound, String placeName) {
+        super.init(transPoint, transPoint2, n, altitude, n2, n3, n4, placeName);
         this.setAltitude(altitude);
         this.foundation = foundation;
         super.setUpBound(upBound);
         super.setDownBound(downBound);
     }
 
-    public void init(final int n, final int n2, final int n3, final int n4, final int n5, final int altitude, final Building foundation, final double upBound, final double downBound) {
-        super.init(new TransPoint(n, (n2 + n4) / 2), new TransPoint(n3, (n2 + n4) / 2), n5, altitude, 0.0, this.fabs(n4 - n2), this.fabs(n3 - n));
+    public void init(final int n, final int n2, final int n3, final int n4, final int n5, final int altitude, final Building foundation, final double upBound, final double downBound, String placeName) {
+        super.init(new TransPoint(n, (n2 + n4) / 2), new TransPoint(n3, (n2 + n4) / 2), n5, altitude, 0.0, this.fabs(n4 - n2), this.fabs(n3 - n), placeName);
         this.setAltitude(altitude);
         this.foundation = foundation;
         super.setUpBound(upBound);

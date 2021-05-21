@@ -2,6 +2,7 @@ package com.natuan.citysimulator.helper;
 
 import com.natuan.citysimulator.Resources.Constants;
 import com.natuan.citysimulator.model.Person;
+import com.natuan.citysimulator.model.Place;
 
 import java.io.*;
 import java.util.Scanner;
@@ -15,6 +16,7 @@ public class MyOutput implements Constants {
     private static int ix;
     private static int iy;
     private static int iz;
+    private static String placeName;
     private long seconds;
     private String Sdata;
     private String file_name;
@@ -62,6 +64,9 @@ public class MyOutput implements Constants {
                 MyOutput.fx *= 0.01;
                 MyOutput.fy *= 0.01;
                 MyOutput.fz *= 0.01;
+                //place
+                MyOutput.placeName =  person.place.placeName;
+                //place
                 final String string2 = new Double(MyOutput.fx).toString();
                 final String string3 = new Double(MyOutput.fy).toString();
                 final String string4 = new Double(MyOutput.fz).toString();
@@ -77,7 +82,7 @@ public class MyOutput implements Constants {
                 final String substring3 = string3.substring(0, index3);
                 int index4 = string4.indexOf(".");
                 index4 += 2;
-                printWriter.println(this.Sdata = "" + string + ", " + substring + ", " + substring2 + "," + substring3 + "," + string4.substring(0, index4) + "," + n);
+                printWriter.println(this.Sdata = "" + string + ", " + substring + ", " + substring2 + "," + substring3 + "," + string4.substring(0, index4) + "," + n +","+MyOutput.placeName);
             }
             printWriter.flush();
             printWriter.close();
@@ -97,7 +102,7 @@ public class MyOutput implements Constants {
             printWriter.println(this.Sdata = "# Num People  = " + i + " moves between additions = " + j + " final Moves = " + k + "   output filename: = " + this.file_name);
             printWriter.println(this.Sdata = "# random number seed = " + lng);
             printWriter.println(this.Sdata = "# data format is: ");
-            printWriter.println(this.Sdata = "# index, time,  x,y,z ,# cycle\n");
+            printWriter.println(this.Sdata = "# index, time,  x,y,z , cycle, place \n");
             printWriter.flush();
             printWriter.close();
         } catch (FileNotFoundException ex2) {
@@ -120,7 +125,7 @@ public class MyOutput implements Constants {
             printWriter.println(this.Sdata = "# Num People  = " + i + " moves between additions = " + j + " final Moves = " + k + "   output filename: = " + file_convert_name);
             printWriter.println(this.Sdata = "# random number seed = " + lng);
             printWriter.println(this.Sdata = "# data format is: ");
-            printWriter.println(this.Sdata = "# index, time,  x,y,z ,# cycle\n");
+            printWriter.println(this.Sdata = "# index, time,  x,y,z , cycle, place\n");
             printWriter.flush();
 
             while (scanner.hasNextLine() && header < 5) {

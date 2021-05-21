@@ -33,19 +33,34 @@ public class Building extends Place implements ActionListener, ChangeListener {
         this.neighborDOWN = null;
     }
 
-    public void init(final int n, final int n2, final int n3, final int n4, final double upBound, final double exitProb) {
-        super.init(new TransPoint(n, (n2 + n4) / 2), new TransPoint(n3, (n2 + n4) / 2), 0.0, this.fabs(n4 - n2), this.fabs(n3 - n));
-        super.placeColor = 63;
-        this.setUpBound(upBound);
-        this.exitProb = exitProb;
-    }
+//    public void init(final int n, final int n2, final int n3, final int n4, final double upBound, final double exitProb) {
+//        super.init(new TransPoint(n, (n2 + n4) / 2), new TransPoint(n3, (n2 + n4) / 2), 0.0, this.fabs(n4 - n2), this.fabs(n3 - n));
+//        super.placeColor = 63;
+//        this.setUpBound(upBound);
+//        this.exitProb = exitProb;
+//    }
+//
+//    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, final double upBound, final double exitProb) {
+//        super.init(transPoint, transPoint2, n, n2, n3);
+//        super.placeColor = 63;
+//        this.setUpBound(upBound);
+//        this.exitProb = exitProb;
+//    }
 
-    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, final double upBound, final double exitProb) {
-        super.init(transPoint, transPoint2, n, n2, n3);
+    // init with 7 params news
+    public void init(final int n, final int n2, final int n3, final int n4, final double upBound, final double exitProb, String placeName) {
+        super.init(new TransPoint(n, (n2 + n4) / 2), new TransPoint(n3, (n2 + n4) / 2), 0.0, this.fabs(n4 - n2), this.fabs(n3 - n), placeName);
         super.placeColor = 63;
         this.setUpBound(upBound);
         this.exitProb = exitProb;
     }
+//    init with 8 param new
+public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, final double upBound, final double exitProb, String placeName) {
+    super.init(transPoint, transPoint2, n, n2, n3, placeName);
+    super.placeColor = 63;
+    this.setUpBound(upBound);
+    this.exitProb = exitProb;
+}
 
     public boolean movePerson(final Person person) {
         Place.ix = person.xpos;
