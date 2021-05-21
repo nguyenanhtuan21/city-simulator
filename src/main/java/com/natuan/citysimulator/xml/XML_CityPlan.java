@@ -27,6 +27,7 @@ public class XML_CityPlan extends CityPlanAbstract {
     private static double prob;
     private static XML_CityWriter cityWriter;
     private static String s;
+    private static String placeName;
     private static Double d;
     private static Integer anInt;
     private static double angle;
@@ -201,11 +202,12 @@ public class XML_CityPlan extends CityPlanAbstract {
             XML_CityPlan.length = getScaledValue(element, "Length");
             XML_CityPlan.s = element.getAttribute("Angle");
             XML_CityPlan.angle = Double.valueOf(XML_CityPlan.s);
+            XML_CityPlan.placeName = "Intersection Name";
             final TransPoint point = getPoint(findChildNodeByName(item, "EndPoint1"));
             final TransPoint point2 = getPoint(findChildNodeByName(item, "EndPoint2"));
             XML_CityPlan.length = validateLength(point, point2, XML_CityPlan.length);
             final Intersection intersection = new Intersection();
-            intersection.init(point, point2, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.angle);
+            intersection.init(point, point2, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.angle,XML_CityPlan.placeName);
             CityPlanAbstract.city.createIntersection(intersection);
         }
         final NodeList elementsByTagName2 = documentElement.getElementsByTagName("Road");
@@ -232,8 +234,9 @@ public class XML_CityPlan extends CityPlanAbstract {
             XML_CityPlan.exitProb = Double.valueOf(XML_CityPlan.s);
             XML_CityPlan.s = element3.getAttribute("VelGradient");
             XML_CityPlan.velGrad = Double.valueOf(XML_CityPlan.s);
+            XML_CityPlan.placeName = "Tran Nhat Duat Road";
             final Road road = new Road();
-            road.init(point3, point4, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.angle, XML_CityPlan.velGrad, XML_CityPlan.enterProb, XML_CityPlan.exitProb);
+            road.init(point3, point4, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.angle, XML_CityPlan.velGrad, XML_CityPlan.enterProb, XML_CityPlan.exitProb, XML_CityPlan.placeName);
             CityPlanAbstract.city.createRoad(road);
         }
         final NodeList elementsByTagName3 = documentElement.getElementsByTagName("GrassyField");
@@ -255,8 +258,9 @@ public class XML_CityPlan extends CityPlanAbstract {
             }
             XML_CityPlan.s = ((Element) childNodeByName2).getAttribute("ExitProb");
             XML_CityPlan.exitProb = Double.valueOf(XML_CityPlan.s);
+            XML_CityPlan.placeName = "Garden";
             final GrassyField grassyField = new GrassyField();
-            grassyField.init(point5, point6, XML_CityPlan.angle, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.exitProb);
+            grassyField.init(point5, point6, XML_CityPlan.angle, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.exitProb, XML_CityPlan.placeName);
             CityPlanAbstract.city.createGrassyField(grassyField);
         }
         final NodeList elementsByTagName4 = documentElement.getElementsByTagName("Building");
@@ -278,6 +282,7 @@ public class XML_CityPlan extends CityPlanAbstract {
             XML_CityPlan.width = getScaledValue(element5, "Width");
             XML_CityPlan.length = getScaledValue(element5, "Length");
             XML_CityPlan.s = element5.getAttribute("Angle");
+            XML_CityPlan.placeName = element5.getAttribute("CodeName");
             XML_CityPlan.angle = Double.valueOf(XML_CityPlan.s);
             final TransPoint point7 = getPoint(findChildNodeByName(item4, "EndPoint1"));
             final TransPoint point8 = getPoint(findChildNodeByName(item4, "EndPoint2"));
@@ -293,7 +298,7 @@ public class XML_CityPlan extends CityPlanAbstract {
             XML_CityPlan.s = element6.getAttribute("ExitProb");
             XML_CityPlan.exitProb = Double.valueOf(XML_CityPlan.s);
             final Building building = new Building();
-            building.init(point7, point8, XML_CityPlan.angle, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.upProb, XML_CityPlan.exitProb);
+            building.init(point7, point8, XML_CityPlan.angle, XML_CityPlan.width, XML_CityPlan.length, XML_CityPlan.upProb, XML_CityPlan.exitProb, XML_CityPlan.placeName);
             final NodeList elementsByTagName5 = ((Element) item4).getElementsByTagName("Floor");
             building.placeColor = CityPlanAbstract.city.getColorByFloorNumber(elementsByTagName5.getLength());
             CityPlanAbstract.city.createBuilding(building);
@@ -311,6 +316,7 @@ public class XML_CityPlan extends CityPlanAbstract {
             XML_CityPlan.width = getScaledValue(element, "Width");
             XML_CityPlan.length = getScaledValue(element, "Length");
             XML_CityPlan.s = element.getAttribute("Angle");
+            XML_CityPlan.placeName = "Floor";
             XML_CityPlan.angle = Double.valueOf(XML_CityPlan.s);
             XML_CityPlan.s = element.getAttribute("Altitude");
             XML_CityPlan.altitude = Integer.valueOf(XML_CityPlan.s);
@@ -330,7 +336,7 @@ public class XML_CityPlan extends CityPlanAbstract {
             XML_CityPlan.s = element2.getAttribute("DownProb");
             XML_CityPlan.downProb = Double.valueOf(XML_CityPlan.s);
             final Floor floor = new Floor();
-            floor.init(point, point2, XML_CityPlan.floorNum, XML_CityPlan.altitude, XML_CityPlan.angle, XML_CityPlan.width, XML_CityPlan.length, neighborDown, XML_CityPlan.upProb, XML_CityPlan.downProb);
+            floor.init(point, point2, XML_CityPlan.floorNum, XML_CityPlan.altitude, XML_CityPlan.angle, XML_CityPlan.width, XML_CityPlan.length, neighborDown, XML_CityPlan.upProb, XML_CityPlan.downProb,XML_CityPlan.placeName);
             if (i == 0) {
                 floor.setNeighborDown(neighborDown);
                 neighborDown.setNeighborUp(floor);

@@ -49,11 +49,11 @@ public class Road extends Place implements ActionListener, ChangeListener {
         this.exitProb = 0.0;
     }
 
-    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, final double velGradient, final double enterProb, final double exitProb) {
+    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, final double velGradient, final double enterProb, final double exitProb, String placeName) {
         this.velGradient = velGradient;
         this.enterProb = enterProb;
         this.exitProb = exitProb;
-        super.init(transPoint, transPoint2, n3, n, n2);
+        super.init(transPoint, transPoint2, n3, n, n2, placeName);
         if (super.halfWidth / 10.0 < 2.0) {
             System.out.println("Road Error: Road too narrow or map scaling factor too large");
             System.exit(0);

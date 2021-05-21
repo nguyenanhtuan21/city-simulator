@@ -126,9 +126,11 @@ public class XML_CityWriter {
         final String string7 = Integer.toString(building.endPoint1.y);
         final String string8 = Integer.toString(building.endPoint2.x);
         final String string9 = Integer.toString(building.endPoint2.y);
+        final String placeName = building.placeName;
         element.setAttribute("Width", string);
         element.setAttribute("Length", string2);
         element.setAttribute("Angle", string3);
+        element.setAttribute("CodeName", placeName);
         final Element element2 = XML_CityWriter.doc.createElement("MotionRules");
         element2.setAttribute("UpProb", string4);
         element2.setAttribute("ExitProb", string5);

@@ -45,6 +45,7 @@ public abstract class Place implements Constants {
     public int altitude;
     public int centerX;
     public int centerY;
+    public String placeName;
 
     public Place() {
         this.floor = 0;
@@ -55,9 +56,22 @@ public abstract class Place implements Constants {
         this.upBound = 0.0;
         this.downBound = 0.0;
         this.occupants = new Vector();
+        this.placeName = "Another Place";
     }
 
-    public void init(final TransPoint endPoint1, final TransPoint endPoint2, final double orientRads, final double n, final double length) {
+//    public void init(final TransPoint endPoint1, final TransPoint endPoint2, final double orientRads, final double n, final double length) {
+//        this.endPoint1 = endPoint1;
+//        this.endPoint2 = endPoint2;
+//        this.orientRads = orientRads;
+//        this.halfWidth = this.fabs(n / 2.0);
+//        this.length = length;
+//        this.centerX = (endPoint1.x + endPoint2.x) / 2;
+//        this.centerY = (endPoint1.y + endPoint2.y) / 2;
+//        this.floor = 0;
+//        this.altitude = 0;
+//    }
+    // init 6 news
+    public void init(final TransPoint endPoint1, final TransPoint endPoint2, final double orientRads, final double n, final double length, String placeName) {
         this.endPoint1 = endPoint1;
         this.endPoint2 = endPoint2;
         this.orientRads = orientRads;
@@ -67,9 +81,23 @@ public abstract class Place implements Constants {
         this.centerY = (endPoint1.y + endPoint2.y) / 2;
         this.floor = 0;
         this.altitude = 0;
+        this.placeName = placeName;
     }
 
-    public void init(final TransPoint endPoint1, final TransPoint endPoint2, final int floor, final int altitude, final double orientRads, final double n, final double length) {
+//    public void init(final TransPoint endPoint1, final TransPoint endPoint2, final int floor, final int altitude, final double orientRads, final double n, final double length) {
+//        this.endPoint1 = endPoint1;
+//        this.endPoint2 = endPoint2;
+//        this.orientRads = orientRads;
+//        this.halfWidth = this.fabs(n / 2.0);
+//        this.length = length;
+//        this.centerX = (endPoint1.x + endPoint2.x) / 2;
+//        this.centerY = (endPoint1.y + endPoint2.y) / 2;
+//        this.floor = floor;
+//        this.altitude = altitude;
+//    }
+
+    // init with 7 news
+    public void init(final TransPoint endPoint1, final TransPoint endPoint2, final int floor, final int altitude, final double orientRads, final double n, final double length, String placeName ) {
         this.endPoint1 = endPoint1;
         this.endPoint2 = endPoint2;
         this.orientRads = orientRads;
@@ -79,8 +107,8 @@ public abstract class Place implements Constants {
         this.centerY = (endPoint1.y + endPoint2.y) / 2;
         this.floor = floor;
         this.altitude = altitude;
+        this.placeName = placeName;
     }
-
     public void showOptionsFrame() {
     }
 

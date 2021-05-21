@@ -58,8 +58,8 @@ public class Intersection extends Place implements ActionListener, ChangeListene
         this.exitPlaceList = new Vector();
     }
 
-    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3) {
-        super.init(transPoint, transPoint2, n3, n, n2);
+    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, String placeName) {
+        super.init(transPoint, transPoint2, n3, n, n2, placeName);
         this.allExitPoints = new Vector();
         Intersection.FOURTHWIDTH = (int) (n / 4.0);
         Intersection.THREEFOURTHS = 3 * Intersection.FOURTHWIDTH;

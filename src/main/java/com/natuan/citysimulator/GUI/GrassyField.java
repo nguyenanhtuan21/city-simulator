@@ -39,15 +39,15 @@ public class GrassyField extends Place implements ActionListener, ChangeListener
         this.neighborDOWN = null;
     }
 
-    public void init(final int n, final int n2, final int n3, final int n4, final double exitProb) {
-        super.init(new TransPoint(n, (n2 + n4) / 2), new TransPoint(n3, (n2 + n4) / 2), 0.0, this.fabs(n4 - n2), this.fabs(n3 - n));
+    public void init(final int n, final int n2, final int n3, final int n4, final double exitProb, String placeName) {
+        super.init(new TransPoint(n, (n2 + n4) / 2), new TransPoint(n3, (n2 + n4) / 2), 0.0, this.fabs(n4 - n2), this.fabs(n3 - n), placeName);
         super.placeColor = 6;
         super.setUpBound(0.0);
         GrassyField.exitProb = exitProb;
     }
 
-    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, final double exitProb) {
-        super.init(transPoint, transPoint2, n, n2, n3);
+    public void init(final TransPoint transPoint, final TransPoint transPoint2, final double n, final double n2, final double n3, final double exitProb,String placeName) {
+        super.init(transPoint, transPoint2, n, n2, n3, placeName);
         super.setUpBound(0.0);
         super.placeColor = 6;
         GrassyField.exitProb = exitProb;

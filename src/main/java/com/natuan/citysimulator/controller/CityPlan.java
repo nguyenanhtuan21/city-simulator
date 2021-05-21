@@ -42,7 +42,7 @@ public class CityPlan extends CityPlanAbstract {
         for (int i = 0; i < 6; ++i) {
             final int n = Constants.interX[i];
             final int n2 = Constants.interY[i];
-            (CityPlanAbstract.intersection[i] = new Intersection()).init(new TransPoint(n, n2 + 50), new TransPoint(n + 100, n2 + 50), 100.0, 100.0, 0.0);
+            (CityPlanAbstract.intersection[i] = new Intersection()).init(new TransPoint(n, n2 + 50), new TransPoint(n + 100, n2 + 50), 100.0, 100.0, 0.0, "Intersection Name");
             CityPlanAbstract.city.createIntersection(CityPlanAbstract.intersection[i]);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.intersection[i]);
@@ -111,43 +111,43 @@ public class CityPlan extends CityPlanAbstract {
             final TransPoint transPoint16 = new TransPoint((n42 + n44) / 2, n43);
             final double n45 = n43 - n41;
             final double n46 = 2.4;
-            (CityPlanAbstract.road = new Road()).init(transPoint, transPoint2, 100.0, n10, 0.0, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint, transPoint2, 100.0, n10, 0.0, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
             }
-            (CityPlanAbstract.road = new Road()).init(transPoint3, transPoint4, 100.0, n15, 0.0, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint3, transPoint4, 100.0, n15, 0.0, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
             }
-            (CityPlanAbstract.road = new Road()).init(transPoint5, transPoint6, 100.0, n20, 0.0, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint5, transPoint6, 100.0, n20, 0.0, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
             }
-            (CityPlanAbstract.road = new Road()).init(transPoint7, transPoint8, 100.0, n25, 0.0, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint7, transPoint8, 100.0, n25, 0.0, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
             }
             final double n47 = 1.570796326795;
-            (CityPlanAbstract.road = new Road()).init(transPoint9, transPoint10, 100.0, n30, n47, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint9, transPoint10, 100.0, n30, n47, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
             }
-            (CityPlanAbstract.road = new Road()).init(transPoint11, transPoint12, 100.0, n35, n47, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint11, transPoint12, 100.0, n35, n47, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
             }
-            (CityPlanAbstract.road = new Road()).init(transPoint13, transPoint14, 100.0, n40, n47, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint13, transPoint14, 100.0, n40, n47, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
             }
-            (CityPlanAbstract.road = new Road()).init(transPoint15, transPoint16, 100.0, n45, n47, n46, City.enterProb, City.exitProb);
+            (CityPlanAbstract.road = new Road()).init(transPoint15, transPoint16, 100.0, n45, n47, n46, City.enterProb, City.exitProb, "RoadName");
             CityPlanAbstract.city.createRoad(CityPlanAbstract.road);
             if (CityPlan.xmlFlag) {
                 CityPlan.cityWriter.addPlace(CityPlanAbstract.road);
@@ -200,40 +200,40 @@ public class CityPlan extends CityPlanAbstract {
             final int n93 = n41 + 10;
             final int n94 = n23 - this.getRoadFluct();
             final int n95 = n43 - 10;
-            (CityPlanAbstract.building = new Building()).init(n48, n49, n50, n51, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n48, n49, n50, n51, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n52, n53, n54, n55, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n52, n53, n54, n55, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n56, n57, n58, n59, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n56, n57, n58, n59, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n60, n61, n62, n63, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n60, n61, n62, n63, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n64, n65, n66, n67, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n64, n65, n66, n67, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n68, n69, n70, n71, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n68, n69, n70, n71, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n72, n73, n74, n75, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n72, n73, n74, n75, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n76, n77, n78, n79, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n76, n77, n78, n79, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n80, n81, n82, n83, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n80, n81, n82, n83, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n84, n85, n86, n87, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n84, n85, n86, n87, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n88, n89, n90, n91, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n88, n89, n90, n91, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
-            (CityPlanAbstract.building = new Building()).init(n92, n93, n94, n95, City.upProb, City.exitProb);
+            (CityPlanAbstract.building = new Building()).init(n92, n93, n94, n95, City.upProb, City.exitProb,"test");
             CityPlanAbstract.city.createBuilding(CityPlanAbstract.building);
             this.computeFloors(CityPlanAbstract.building);
         }
@@ -261,7 +261,7 @@ public class CityPlan extends CityPlanAbstract {
         for (int i = 1; i <= CityPlan.numFloors; ++i) {
             final int n3 = CityPlan.zPeriod * i;
             final Floor obj = new Floor();
-            obj.init(endPoint1, endPoint2, i, n3, orientRads, n2, length, neighborDown, upProb, downProb);
+            obj.init(endPoint1, endPoint2, i, n3, orientRads, n2, length, neighborDown, upProb, downProb, "floorName");
             if (i == 1) {
                 obj.setNeighborDown(neighborDown);
                 neighborDown.setNeighborUp(obj);
