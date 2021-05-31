@@ -17,7 +17,7 @@ public class Person implements Constants {
 
     public void setPlace(final Place place) {
         this.place = place;
-        this.place.placeName = place.placeName;
+//        this.place.placeName = place.placeName;
     }
 
     public void setTime(final double time) {

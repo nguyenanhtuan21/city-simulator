@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="city-simulator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/city_simulator_jar</output-path>
+    <root id="archive" name="city-simulator.jar">
+      <element id="module-output" name="city-simulator" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/xml-apis/xml-apis/1.3.04/xml-apis-1.3.04.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/xerces/xercesImpl/2.9.1/xercesImpl-2.9.1.jar" path-in-jar="/" />
+      <element id="library" level="project" name="xerces" />
+    </root>
+  </artifact>
+</component>
