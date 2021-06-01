@@ -66,6 +66,8 @@ public class MyOutput implements Constants {
                 MyOutput.fz *= 0.01;
                 //place
                 MyOutput.placeName =  person.place.placeName;
+                int flo = person.place.floor;
+                String floSting = flo == 0? "" : "Floor " + flo + ". ";
                 //place
                 final String string2 = new Double(MyOutput.fx).toString();
                 final String string3 = new Double(MyOutput.fy).toString();
@@ -82,7 +84,7 @@ public class MyOutput implements Constants {
                 final String substring3 = string3.substring(0, index3);
                 int index4 = string4.indexOf(".");
                 index4 += 2;
-                printWriter.println(this.Sdata = "" + string + ", " + substring + ", " + substring2 + "," + substring3 + "," + string4.substring(0, index4) + "," + n +","+MyOutput.placeName);
+                printWriter.println(this.Sdata = "" + string + ", " + substring + ", " + substring2 + "," + substring3 + "," + string4.substring(0, index4) + "," + n +","+ floSting + MyOutput.placeName);
             }
             printWriter.flush();
             printWriter.close();

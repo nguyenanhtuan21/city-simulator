@@ -316,7 +316,7 @@ public class XML_CityPlan extends CityPlanAbstract {
             XML_CityPlan.width = getScaledValue(element, "Width");
             XML_CityPlan.length = getScaledValue(element, "Length");
             XML_CityPlan.s = element.getAttribute("Angle");
-            XML_CityPlan.placeName = "Floor";
+//            XML_CityPlan.placeName = "Floor";
             XML_CityPlan.angle = Double.valueOf(XML_CityPlan.s);
             XML_CityPlan.s = element.getAttribute("Altitude");
             XML_CityPlan.altitude = Integer.valueOf(XML_CityPlan.s);
