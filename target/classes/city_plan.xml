@@ -108,12 +108,12 @@
         <MotionRules EnterProb="0.1" ExitProb="0.1" VelGradient="2.4"/>
     </Road>
 
-    <GrassyField Angle="0.0" Length="518.0" Width="506.0">
+    <GrassyField CodeName="National Park" Angle="0.0" Length="518.0" Width="506.0">
         <EndPoint1 x="481" y="746"/>
         <EndPoint2 x="999" y="746"/>
         <MotionRules ExitProb="0.1"/>
     </GrassyField>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="518.0" Width="394.0">
+    <Building CodeName="House number 1" Angle="0.0" Length="518.0" Width="394.0">
         <EndPoint1 x="481" y="1298"/>
         <EndPoint2 x="999" y="1298"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -183,7 +183,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="398.0" Width="394.0">
+    <Building CodeName="House number 2" Angle="0.0" Length="398.0" Width="394.0">
         <EndPoint1 x="1101" y="1298"/>
         <EndPoint2 x="1499" y="1298"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -258,7 +258,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="398.0" Width="506.0">
+    <Building CodeName="House number 3" Angle="0.0" Length="398.0" Width="506.0">
         <EndPoint1 x="1101" y="746"/>
         <EndPoint2 x="1499" y="746"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -308,7 +308,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="450.0" Width="430.0">
+    <Building CodeName="House number 4" Angle="0.0" Length="450.0" Width="430.0">
         <EndPoint1 x="10" y="784"/>
         <EndPoint2 x="460" y="784"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -383,7 +383,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="450.0" Width="365.0">
+    <Building CodeName="House number 5" Angle="0.0" Length="450.0" Width="365.0">
         <EndPoint1 x="10" y="1283"/>
         <EndPoint2 x="460" y="1283"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -458,7 +458,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="570.0" Width="472.0">
+    <Building CodeName="House number 6" Angle="0.0" Length="570.0" Width="472.0">
         <EndPoint1 x="1520" y="763"/>
         <EndPoint2 x="2090" y="763"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -498,7 +498,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="570.0" Width="380.0">
+    <Building CodeName="House number 7" Angle="0.0" Length="570.0" Width="380.0">
         <EndPoint1 x="1520" y="1291"/>
         <EndPoint2 x="2090" y="1291"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -553,7 +553,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="999.0" Width="462.0">
+    <Building CodeName="House number 8" Angle="0.0" Length="999.0" Width="462.0">
         <EndPoint1 x="0" y="241"/>
         <EndPoint2 x="999" y="241"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -598,7 +598,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="955.0" Width="462.0">
+    <Building CodeName="House number 9" Angle="0.0" Length="955.0" Width="462.0">
         <EndPoint1 x="1101" y="241"/>
         <EndPoint2 x="2056" y="241"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -643,7 +643,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="914.0" Width="574.0">
+    <Building CodeName="House number 10" Angle="0.0" Length="914.0" Width="574.0">
         <EndPoint1 x="85" y="1803"/>
         <EndPoint2 x="999" y="1803"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -708,7 +708,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="906.0" Width="574.0">
+    <Building CodeName="House number 11" Angle="0.0" Length="906.0" Width="574.0">
         <EndPoint1 x="1101" y="1803"/>
         <EndPoint2 x="2007" y="1803"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -803,7 +803,7 @@
         <EndPoint2 x="1050" y="4200"/>
         <MotionRules EnterProb="0.1" ExitProb="0.1" VelGradient="2.4"/>
     </Road>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="499.0" Width="539.0">
+    <Building CodeName="House number 12" Angle="0.0" Length="499.0" Width="539.0">
         <EndPoint1 x="500" y="2829"/>
         <EndPoint2 x="999" y="2829"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -873,7 +873,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="499.0" Width="396.0">
+    <Building CodeName="House number 13" Angle="0.0" Length="499.0" Width="396.0">
         <EndPoint1 x="500" y="3399"/>
         <EndPoint2 x="999" y="3399"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -908,7 +908,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="440.0" Width="396.0">
+    <Building CodeName="House number 14" Angle="0.0" Length="440.0" Width="396.0">
         <EndPoint1 x="1101" y="3399"/>
         <EndPoint2 x="1541" y="3399"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -973,7 +973,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="440.0" Width="539.0">
+    <Building CodeName="House number 15" Angle="0.0" Length="440.0" Width="539.0">
         <EndPoint1 x="1101" y="2829"/>
         <EndPoint2 x="1541" y="2829"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1008,7 +1008,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="469.0" Width="474.0">
+    <Building CodeName="House number 16" Angle="0.0" Length="469.0" Width="474.0">
         <EndPoint1 x="10" y="2862"/>
         <EndPoint2 x="479" y="2862"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1063,7 +1063,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="469.0" Width="341.0">
+    <Building CodeName="House number 17" Angle="0.0" Length="469.0" Width="341.0">
         <EndPoint1 x="10" y="3371"/>
         <EndPoint2 x="479" y="3371"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1143,7 +1143,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="528.0" Width="468.0">
+    <Building CodeName="House number 18" Angle="0.0" Length="528.0" Width="468.0">
         <EndPoint1 x="1562" y="2865"/>
         <EndPoint2 x="2090" y="2865"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1178,7 +1178,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="528.0" Width="356.0">
+    <Building CodeName="House number 19" Angle="0.0" Length="528.0" Width="356.0">
         <EndPoint1 x="1562" y="3379"/>
         <EndPoint2 x="2090" y="3379"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1253,7 +1253,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="915.0" Width="429.0">
+    <Building CodeName="House number 20" Angle="0.0" Length="915.0" Width="429.0">
         <EndPoint1 x="84" y="2324"/>
         <EndPoint2 x="999" y="2324"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1303,7 +1303,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="963.0" Width="429.0">
+    <Building CodeName="House number 21" Angle="0.0" Length="963.0" Width="429.0">
         <EndPoint1 x="1101" y="2324"/>
         <EndPoint2 x="2064" y="2324"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1338,7 +1338,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="970.0" Width="572.0">
+    <Building CodeName="House number 22" Angle="0.0" Length="970.0" Width="572.0">
         <EndPoint1 x="29" y="3904"/>
         <EndPoint2 x="999" y="3904"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1378,7 +1378,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="941.0" Width="572.0">
+    <Building CodeName="House number 23" Angle="0.0" Length="941.0" Width="572.0">
         <EndPoint1 x="1101" y="3904"/>
         <EndPoint2 x="2042" y="3904"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1463,7 +1463,7 @@
         <EndPoint2 x="1050" y="6300"/>
         <MotionRules EnterProb="0.1" ExitProb="0.1" VelGradient="2.4"/>
     </Road>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="508.0" Width="508.0">
+    <Building CodeName="House number 24" Angle="0.0" Length="508.0" Width="508.0">
         <EndPoint1 x="491" y="4945"/>
         <EndPoint2 x="999" y="4945"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1543,7 +1543,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="508.0" Width="467.0">
+    <Building CodeName="House number 25" Angle="0.0" Length="508.0" Width="467.0">
         <EndPoint1 x="491" y="5534"/>
         <EndPoint2 x="999" y="5534"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1603,7 +1603,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="426.0" Width="467.0">
+    <Building CodeName="House number 26" Angle="0.0" Length="426.0" Width="467.0">
         <EndPoint1 x="1101" y="5534"/>
         <EndPoint2 x="1527" y="5534"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1648,7 +1648,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="426.0" Width="508.0">
+    <Building CodeName="House number 27" Angle="0.0" Length="426.0" Width="508.0">
         <EndPoint1 x="1101" y="4945"/>
         <EndPoint2 x="1527" y="4945"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1713,7 +1713,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="460.0" Width="481.0">
+    <Building CodeName="House number 28" Angle="0.0" Length="460.0" Width="481.0">
         <EndPoint1 x="10" y="4958"/>
         <EndPoint2 x="470" y="4958"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1743,7 +1743,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="460.0" Width="425.0">
+    <Building CodeName="House number 29" Angle="0.0" Length="460.0" Width="425.0">
         <EndPoint1 x="10" y="5513"/>
         <EndPoint2 x="470" y="5513"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1818,7 +1818,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="542.0" Width="461.0">
+    <Building CodeName="House number 30" Angle="0.0" Length="542.0" Width="461.0">
         <EndPoint1 x="1548" y="4968"/>
         <EndPoint2 x="2090" y="4968"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1848,7 +1848,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="542.0" Width="449.0">
+    <Building CodeName="House number 31" Angle="0.0" Length="542.0" Width="449.0">
         <EndPoint1 x="1548" y="5525"/>
         <EndPoint2 x="2090" y="5525"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1913,7 +1913,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="989.0" Width="460.0">
+    <Building CodeName="House number 32" Angle="0.0" Length="989.0" Width="460.0">
         <EndPoint1 x="10" y="4440"/>
         <EndPoint2 x="999" y="4440"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -1953,7 +1953,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="928.0" Width="460.0">
+    <Building CodeName="House number 33" Angle="0.0" Length="928.0" Width="460.0">
         <EndPoint1 x="1101" y="4440"/>
         <EndPoint2 x="2029" y="4440"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2028,7 +2028,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="903.0" Width="501.0">
+    <Building CodeName="House number 34" Angle="0.0" Length="903.0" Width="501.0">
         <EndPoint1 x="96" y="6039"/>
         <EndPoint2 x="999" y="6039"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2083,7 +2083,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="993.0" Width="501.0">
+    <Building CodeName="House number 35" Angle="0.0" Length="993.0" Width="501.0">
         <EndPoint1 x="1101" y="6039"/>
         <EndPoint2 x="2094" y="6039"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2183,7 +2183,7 @@
         <EndPoint2 x="3150" y="2100"/>
         <MotionRules EnterProb="0.1" ExitProb="0.1" VelGradient="2.4"/>
     </Road>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="500.0" Width="527.0">
+    <Building CodeName="House number 36" Angle="0.0" Length="500.0" Width="527.0">
         <EndPoint1 x="2599" y="735"/>
         <EndPoint2 x="3099" y="735"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2233,7 +2233,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="500.0" Width="402.0">
+    <Building CodeName="House number 37" Angle="0.0" Length="500.0" Width="402.0">
         <EndPoint1 x="2599" y="1302"/>
         <EndPoint2 x="3099" y="1302"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2298,7 +2298,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="485.0" Width="402.0">
+    <Building CodeName="House number 38" Angle="0.0" Length="485.0" Width="402.0">
         <EndPoint1 x="3201" y="1302"/>
         <EndPoint2 x="3686" y="1302"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2328,7 +2328,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="485.0" Width="527.0">
+    <Building CodeName="House number 39" Angle="0.0" Length="485.0" Width="527.0">
         <EndPoint1 x="3201" y="735"/>
         <EndPoint2 x="3686" y="735"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2363,7 +2363,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="468.0" Width="521.0">
+    <Building CodeName="House number 40" Angle="0.0" Length="468.0" Width="521.0">
         <EndPoint1 x="2110" y="738"/>
         <EndPoint2 x="2578" y="738"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2443,7 +2443,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="468.0" Width="365.0">
+    <Building CodeName="House number 41" Angle="0.0" Length="468.0" Width="365.0">
         <EndPoint1 x="2110" y="1283"/>
         <EndPoint2 x="2578" y="1283"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2493,7 +2493,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="483.0" Width="517.0">
+    <Building CodeName="House number 42" Angle="0.0" Length="483.0" Width="517.0">
         <EndPoint1 x="3707" y="740"/>
         <EndPoint2 x="4190" y="740"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2538,7 +2538,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="483.0" Width="395.0">
+    <Building CodeName="House number 43" Angle="0.0" Length="483.0" Width="395.0">
         <EndPoint1 x="3707" y="1298"/>
         <EndPoint2 x="4190" y="1298"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2568,7 +2568,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="952.0" Width="441.0">
+    <Building CodeName="House number 44" Angle="0.0" Length="952.0" Width="441.0">
         <EndPoint1 x="2147" y="230"/>
         <EndPoint2 x="3099" y="230"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2638,7 +2638,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="939.0" Width="441.0">
+    <Building CodeName="House number 45" Angle="0.0" Length="939.0" Width="441.0">
         <EndPoint1 x="3201" y="230"/>
         <EndPoint2 x="4140" y="230"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2708,7 +2708,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="980.0" Width="566.0">
+    <Building CodeName="House number 46" Angle="0.0" Length="980.0" Width="566.0">
         <EndPoint1 x="2119" y="1807"/>
         <EndPoint2 x="3099" y="1807"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2768,7 +2768,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="966.0" Width="566.0">
+    <Building CodeName="House number 47" Angle="0.0" Length="966.0" Width="566.0">
         <EndPoint1 x="3201" y="1807"/>
         <EndPoint2 x="4167" y="1807"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2848,7 +2848,7 @@
         <EndPoint2 x="3150" y="4200"/>
         <MotionRules EnterProb="0.1" ExitProb="0.1" VelGradient="2.4"/>
     </Road>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="556.0" Width="561.0">
+    <Building CodeName="House number 48" Angle="0.0" Length="556.0" Width="561.0">
         <EndPoint1 x="2543" y="2818"/>
         <EndPoint2 x="3099" y="2818"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2913,7 +2913,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="556.0" Width="449.0">
+    <Building CodeName="House number 49" Angle="0.0" Length="556.0" Width="449.0">
         <EndPoint1 x="2543" y="3425"/>
         <EndPoint2 x="3099" y="3425"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -2973,7 +2973,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="437.0" Width="449.0">
+    <Building CodeName="House number 50" Angle="0.0" Length="437.0" Width="449.0">
         <EndPoint1 x="3201" y="3425"/>
         <EndPoint2 x="3638" y="3425"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3013,7 +3013,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="437.0" Width="561.0">
+    <Building CodeName="House number 51" Angle="0.0" Length="437.0" Width="561.0">
         <EndPoint1 x="3201" y="2818"/>
         <EndPoint2 x="3638" y="2818"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3058,7 +3058,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="412.0" Width="522.0">
+    <Building CodeName="House number 52" Angle="0.0" Length="412.0" Width="522.0">
         <EndPoint1 x="2110" y="2838"/>
         <EndPoint2 x="2522" y="2838"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3108,7 +3108,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="412.0" Width="397.0">
+    <Building CodeName="House number 53" Angle="0.0" Length="412.0" Width="397.0">
         <EndPoint1 x="2110" y="3399"/>
         <EndPoint2 x="2522" y="3399"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3183,7 +3183,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="531.0" Width="463.0">
+    <Building CodeName="House number 54" Angle="0.0" Length="531.0" Width="463.0">
         <EndPoint1 x="3659" y="2867"/>
         <EndPoint2 x="4190" y="2867"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3223,7 +3223,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="531.0" Width="413.0">
+    <Building CodeName="House number 55" Angle="0.0" Length="531.0" Width="413.0">
         <EndPoint1 x="3659" y="3407"/>
         <EndPoint2 x="4190" y="3407"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3288,7 +3288,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="985.0" Width="407.0">
+    <Building CodeName="House number 56" Angle="0.0" Length="985.0" Width="407.0">
         <EndPoint1 x="2114" y="2313"/>
         <EndPoint2 x="3099" y="2313"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3333,7 +3333,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="921.0" Width="407.0">
+    <Building CodeName="House number 57" Angle="0.0" Length="921.0" Width="407.0">
         <EndPoint1 x="3201" y="2313"/>
         <EndPoint2 x="4122" y="2313"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3373,7 +3373,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="956.0" Width="519.0">
+    <Building CodeName="House number 58" Angle="0.0" Length="956.0" Width="519.0">
         <EndPoint1 x="2143" y="3930"/>
         <EndPoint2 x="3099" y="3930"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3448,7 +3448,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="966.0" Width="519.0">
+    <Building CodeName="House number 59" Angle="0.0" Length="966.0" Width="519.0">
         <EndPoint1 x="3201" y="3930"/>
         <EndPoint2 x="4167" y="3930"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3518,7 +3518,7 @@
         <EndPoint2 x="3150" y="6300"/>
         <MotionRules EnterProb="0.1" ExitProb="0.1" VelGradient="2.4"/>
     </Road>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="553.0" Width="516.0">
+    <Building CodeName="House number 60" Angle="0.0" Length="553.0" Width="516.0">
         <EndPoint1 x="2546" y="4941"/>
         <EndPoint2 x="3099" y="4941"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3558,7 +3558,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="553.0" Width="472.0">
+    <Building CodeName="House number 61" Angle="0.0" Length="553.0" Width="472.0">
         <EndPoint1 x="2546" y="5537"/>
         <EndPoint2 x="3099" y="5537"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3618,7 +3618,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="457.0" Width="472.0">
+    <Building CodeName="House number 62" Angle="0.0" Length="457.0" Width="472.0">
         <EndPoint1 x="3201" y="5537"/>
         <EndPoint2 x="3658" y="5537"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3663,7 +3663,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="457.0" Width="516.0">
+    <Building CodeName="House number 63" Angle="0.0" Length="457.0" Width="516.0">
         <EndPoint1 x="3201" y="4941"/>
         <EndPoint2 x="3658" y="4941"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3708,7 +3708,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="415.0" Width="422.0">
+    <Building CodeName="House number 64" Angle="0.0" Length="415.0" Width="422.0">
         <EndPoint1 x="2110" y="4988"/>
         <EndPoint2 x="2525" y="4988"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3748,7 +3748,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="415.0" Width="424.0">
+    <Building CodeName="House number 65" Angle="0.0" Length="415.0" Width="424.0">
         <EndPoint1 x="2110" y="5513"/>
         <EndPoint2 x="2525" y="5513"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3818,7 +3818,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="511.0" Width="441.0">
+    <Building CodeName="House number 66" Angle="0.0" Length="511.0" Width="441.0">
         <EndPoint1 x="3679" y="4978"/>
         <EndPoint2 x="4190" y="4978"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3863,7 +3863,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="511.0" Width="449.0">
+    <Building CodeName="House number 67" Angle="0.0" Length="511.0" Width="449.0">
         <EndPoint1 x="3679" y="5525"/>
         <EndPoint2 x="4190" y="5525"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3943,7 +3943,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="921.0" Width="452.0">
+    <Building CodeName="House number 68" Angle="0.0" Length="921.0" Width="452.0">
         <EndPoint1 x="2178" y="4436"/>
         <EndPoint2 x="3099" y="4436"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -3978,7 +3978,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="916.0" Width="452.0">
+    <Building CodeName="House number 69" Angle="0.0" Length="916.0" Width="452.0">
         <EndPoint1 x="3201" y="4436"/>
         <EndPoint2 x="4117" y="4436"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -4028,7 +4028,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="925.0" Width="496.0">
+    <Building CodeName="House number 70" Angle="0.0" Length="925.0" Width="496.0">
         <EndPoint1 x="2174" y="6042"/>
         <EndPoint2 x="3099" y="6042"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
@@ -4068,7 +4068,7 @@
             <MotionRules DownProb="0.03" UpProb="0.03"/>
         </Floor>
     </Building>
-    <Building CodeName="CoffeHouse" Angle="0.0" Length="968.0" Width="496.0">
+    <Building CodeName="House number 71" Angle="0.0" Length="968.0" Width="496.0">
         <EndPoint1 x="3201" y="6042"/>
         <EndPoint2 x="4169" y="6042"/>
         <MotionRules ExitProb="0.1" UpProb="0.03"/>
